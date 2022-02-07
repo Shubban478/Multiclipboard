@@ -1,6 +1,9 @@
 import sys
 import clipboard
 import json
+import os
+
+os.getcwd()
 
 SAVED_DATA = "clipboard.json"
 
@@ -30,6 +33,11 @@ if len(sys.argv) == 2:
         if key in data:
             clipboard.copy(data[key])
             print("Clipboard data copied")
+    elif command == "delete":
+        key = input("Enter a key: ")
+        if key in data:
+            del key
+            print("Clipboard data deleted")
         else:
             print("Key does not exist")
     elif command == "list":
