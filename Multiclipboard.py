@@ -7,9 +7,11 @@ os.getcwd()
 
 SAVED_DATA = "clipboard.json"
 
+
 def save_clip(filepath, data):
     with open(filepath, "w") as f:
         json.dump(data, f)
+
 
 def load_clip(filepath):
     try:
@@ -18,6 +20,7 @@ def load_clip(filepath):
             return data
     except:
         return {}
+
 
 if len(sys.argv) == 2:
     command = sys.argv[1]
@@ -28,6 +31,7 @@ if len(sys.argv) == 2:
         data[key] = clipboard.paste()
         save_clip(SAVED_DATA, data)
         print("Clipboard data saved")
+
     elif command == "load":
         key = input("Enter a key: ")
         if key in data:
@@ -35,11 +39,20 @@ if len(sys.argv) == 2:
             print("Clipboard data copied")
         else:
             print("Key does not exist")
+
+    elif command == "delete":
+        key = input("Enter a key: ")
+        if key in data:
+            data.pop(key)
+            save_clip(SAVED_DATA, data)
+            print("Clipboard data deleted")
+        else:
+            print("Key does not exist")
+
     elif command == "list":
         print(data)
+
     else:
         print("Not a command")
 else:
     print("Must be only one command")
-
-# TODO delete key's
