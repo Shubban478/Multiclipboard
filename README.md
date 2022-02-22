@@ -6,25 +6,24 @@ The clipboard contents will be saved in a json file in the same folder as the mo
 
 There is 4 different commands that can be passed as an argument:
 
-- Save
-- Load
-- List
-- Delete
-
-Save stores the current contents of your clipboard.
-Load will copy the selected clip to your clipboard.
-List prints a list of clips available to load/delete.
-Delete will delete the specified clip from the json file. 
+- Save - Stores the current contents of your clipboard.
+- Load - Copy the selected clip to your clipboard.
+- List - Prints a list of clips available to load/delete.
+- Delete - Delete the specified clip from the json file.
 
 # Instructions
 
-Open a terminal or command prompt window.
+If you are missing the clipboard module, use pip to install it.
 
-Use the code below, followed by one of the commands.
+* pip install clipboard
 
-Example: python Multiclipboard.py load
+* Open a terminal or command prompt window.
 
-The clips will be saved with a key that you enter. Keys are used to load and delete items from the clipboard.
+* Use the code below, followed by one of the commands.
+
+* python Multiclipboard.py save
+
+You will be prompted to enter a key to associate with the clip. Keys are used to load and delete items from the clipboard.
 
 Notice that this module only takes 1 command at a time.
 
